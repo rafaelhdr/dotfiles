@@ -8,7 +8,7 @@ OS=$(grep ^ID= /etc/os-release | cut -d= -f2)
 if [ "$OS" == "arch" ]; then
     echo "Arch Linux detected."
     ./setup_arch.sh
-elif [ "$OS" == "debian" ]; then
+elif [ "$OS" == "debian" ] || [ "$OS" == "ubuntu" ]; then
     echo "Debian detected."
     ./setup_debian.sh
 else
