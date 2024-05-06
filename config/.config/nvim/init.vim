@@ -29,7 +29,7 @@ set conceallevel=0
 
 " NERDTree
 " Open NERDTree if run 'vim'
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | wincmd p
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree
 let NERDTreeIgnore = ['\.pyc$']
 let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
 set encoding=UTF-8
