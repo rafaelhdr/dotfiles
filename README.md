@@ -8,7 +8,12 @@ cd dotfiles
 bash setup.sh
 ```
 
-Install [vim-plug](https://aur.archlinux.org/packages/vim-plug) and run:
+Install these:
+
+* [vim-plug](https://aur.archlinux.org/packages/vim-plug)
+* [nvm](https://aur.archlinux.org/packages/nvm)
+
+Run:
 
 ```
 $ nvim  ~/.config/nvim/init.vim
