@@ -1,9 +1,8 @@
 
 # Add bin-* directories to the PATH
-for dir in $HOME/bin-*; do
-    if [[ -d $dir ]]; then
-        path+=("$dir")
-    fi
+dirs=($HOME/bin-*(/N))
+for dir in $dirs; do
+    path+=($dir)
 done
 
 export ZSH="$HOME/.oh-my-zsh"
@@ -61,8 +60,8 @@ if [ -e /etc/profile.d/vte.sh ]; then
 fi
 
 # Ruby
-export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
-path+=("$GEM_HOME/bin")
-eval "$(rbenv init - zsh)"
+# export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+# path+=("$GEM_HOME/bin")
+# eval "$(rbenv init - zsh)"
 
 alias gnome-open='xdg-open'
