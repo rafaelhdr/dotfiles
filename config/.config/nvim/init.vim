@@ -53,3 +53,4 @@ nmap <F8> :TagbarToggle<CR>
 set incsearch
 set hlsearch
 syntax on
+set mouse=

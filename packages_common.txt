@@ -3,5 +3,7 @@ gitg
 gnome-tweaks
 neovim
 nodejs
+ripgrep
 vim
+yarn
 zsh
