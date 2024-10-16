@@ -1,8 +1,9 @@
 
 # Add bin-* directories to the PATH
-dirs=($HOME/bin-*(/N))
-for dir in $dirs; do
-    path+=($dir)
+for dir in $HOME/bin-*; do
+    if [[ -d $dir ]]; then
+        path+=("$dir")
+    fi
 done
 
 export ZSH="$HOME/.oh-my-zsh"
@@ -51,6 +52,9 @@ alias j='jump'
 # NeoVim
 alias v='nvim'
 
+# Terraform
+alias tf='terraform'
+
 # NVM
 source /usr/share/nvm/init-nvm.sh
 
@@ -60,8 +64,8 @@ if [ -e /etc/profile.d/vte.sh ]; then
 fi
 
 # Ruby
-# export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
-# path+=("$GEM_HOME/bin")
-# eval "$(rbenv init - zsh)"
+export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+path+=("$GEM_HOME/bin")
+eval "$(rbenv init - zsh)"
 
 alias gnome-open='xdg-open'
