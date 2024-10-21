@@ -4,6 +4,7 @@ gnome-tweaks
 neovim
 nodejs
 ripgrep
+tk
 vim
 wget
 yarn
