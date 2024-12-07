@@ -63,9 +63,4 @@ if [ -e /etc/profile.d/vte.sh ]; then
     . /etc/profile.d/vte.sh
 fi
 
-# Ruby
-export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
-path+=("$GEM_HOME/bin")
-eval "$(rbenv init - zsh)"
-
 alias gnome-open='xdg-open'
