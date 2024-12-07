@@ -3,6 +3,8 @@ gitg
 gnome-tweaks
 neovim
 nodejs
+python
+python-virtualenv
 ripgrep
 tk
 vim

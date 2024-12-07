@@ -10,12 +10,4 @@ bash setup.sh
 
 Install these:
 
-* [vim-plug](https://aur.archlinux.org/packages/vim-plug)
 * [nvm](https://aur.archlinux.org/packages/nvm)
-
-Run:
-
-```
-$ nvim  ~/.config/nvim/init.vim
-:PlugInstall
-```
