@@ -14,7 +14,7 @@ return {
     },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "ts_ls", "pylsp" },
+        ensure_installed = { "lua_ls", "ts_ls", "pyright" },
       })
     end,
   },
@@ -27,6 +27,19 @@ return {
       local lspconfig = require("lspconfig")
       lspconfig.lua_ls.setup({ capabilities = capabilities })
       lspconfig.ts_ls.setup({ capabilities = capabilities })
+      lspconfig.pylsp.setup({
+        capabilities = capabilities,
+        settings = {
+          pylsp = {
+            plugins = {
+              pycodestyle = {
+                indent_size = 4,
+                ignore = { "E501", "W391" },
+              },
+            },
+          },
+        },
+      })
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
