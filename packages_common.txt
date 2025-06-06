@@ -5,6 +5,7 @@ neovim
 nodejs
 python
 python-virtualenv
+rclone
 ripgrep
 tk
 vim
