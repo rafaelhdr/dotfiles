@@ -10,5 +10,6 @@ ripgrep
 tk
 vim
 wget
+wl-clipboard
 yarn
 zsh
