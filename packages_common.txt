@@ -1,6 +1,7 @@
 git
 gitg
 gnome-tweaks
+luarocks
 neovim
 nodejs
 python
