@@ -1,6 +1,8 @@
 vim.cmd("ca tn tabnew")
 vim.cmd("ca tm tabmove")
 vim.cmd("ca tc tabclose")
+vim.keymap.set("n", "<C-h>", ":tabprevious<CR>", { desc = "Previous tab" })
+vim.keymap.set("n", "<C-l>", ":tabnext<CR>", { desc = "Next tab" })
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
