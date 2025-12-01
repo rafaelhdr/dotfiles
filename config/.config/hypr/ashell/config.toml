@@ -1,0 +1,46 @@
+[modules]
+left = [ [ "Workspaces", "Status", "MediaPlayer" ] ]
+center = [ "Clock" ]
+right = [ "monitor-external", "monitor-builtin", "monitor-both", "calendar", "clock", "SystemInfo", [  "Tray", "Privacy", "Settings" ] ]
+
+[updates]
+check_cmd = "checkupdates; paru -Qua"
+update_cmd = 'ghostty -e bash -c "paru; echo Done - Press enter to exit; read" &'
+
+[workspaces]
+enable_workspace_filling = true
+
+[media_player]
+max_title_length = 50
+
+[settings]
+shutdown_cmd = "shutdown now"
+suspend_cmd = "systemctl suspend"
+reboot_cmd = "systemctl reboot"
+logout_cmd = "loginctl kill-user $(whoami)"
+bluetooth_more_cmd = "blueman-manager"
+
+[[CustomModule]]
+name = "monitor-external"
+icon = "󰷜"
+command = "hyprctl keyword monitor eDP-1,disable && hyprctl keyword monitor DP-3,3840x2160@60.00, 0x0, 1, transform, 0"
+
+[[CustomModule]]
+name = "monitor-builtin"
+icon = ""
+command = "hyprctl keyword monitor DP-3,disable && hyprctl keyword monitor eDP-1, 1920x1200@60.00, 0x0, 1, transform, 0"
+
+[[CustomModule]]
+name = "monitor-both"
+icon = "󰍺"
+command = "hyprctl keyword monitor eDP-1, 1920x1200@60.00, 3840x0, 1, transform, 0 && hyprctl keyword monitor DP-3,3840x2160@60.00, 0x0, 1, transform, 0"
+
+[[CustomModule]]
+name = "calendar"
+icon = ""
+command = "gnome-calendar"
+
+[[CustomModule]]
+name = "clock"
+icon = "󱑆"
+command = "gnome-clocks"
