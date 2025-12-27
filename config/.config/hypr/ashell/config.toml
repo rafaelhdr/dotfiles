@@ -1,7 +1,7 @@
 [modules]
 left = [ [ "Workspaces", "Status", "MediaPlayer" ] ]
 center = [ "Clock" ]
-right = [ "monitor-external", "monitor-builtin", "monitor-both", "calendar", "clock", "SystemInfo", [  "Tray", "Privacy", "Settings" ] ]
+right = [ "notifications", "monitor-external", "monitor-builtin", "monitor-both", "calendar", "clock", "SystemInfo", [  "Tray", "Privacy", "Settings" ] ]
 
 [updates]
 check_cmd = "checkupdates; paru -Qua"
@@ -44,3 +44,11 @@ command = "gnome-calendar"
 name = "clock"
 icon = "󱑆"
 command = "gnome-clocks"
+
+[[CustomModule]]
+name = "notifications"
+icon = "󰂚"
+command = "~/.config/hypr/scripts/ashell-mako.sh toggle"
+listen_cmd = "~/.config/hypr/scripts/ashell-mako.sh listen"
+icons.'dnd' = "󰂛"
+alert = ".*dnd.*"
