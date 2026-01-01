@@ -15,7 +15,7 @@ max_title_length = 50
 
 [settings]
 shutdown_cmd = "shutdown now"
-suspend_cmd = "systemctl suspend"
+suspend_cmd = "systemctl suspend && hyprlock"
 reboot_cmd = "systemctl reboot"
 logout_cmd = "loginctl kill-user $(whoami)"
 bluetooth_more_cmd = "blueman-manager"
