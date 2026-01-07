@@ -1,9 +1,16 @@
+docker
+docker-compose
 git
 gitg
 gnome-tweaks
+hyprland-guiutils
+hyprpaper
 luarocks
 neovim
 nodejs
+npm
+nvm
+proton-vpn-gtk-app
 python
 python-virtualenv
 rclone
