@@ -9,14 +9,22 @@ return {
     vim.keymap.set("n", "<leader>cc", '<cmd>CodeCompanionChat Toggle<CR>', {})
 
     require("codecompanion").setup({
+      strategies = {
+        chat = {
+          model = "sonnet-4.5",
+          adapter = "anthropic",
+        },
+      },
       adapters = {
-        anthropic = function()
-          return require("codecompanion.adapters").extend("anthropic", {
-            env = {
-              api_key = "cmd:op read op://home/rafaelhdr/Documents/claude.txt --no-newline",
-            },
-          })
-        end,
+        http = {
+          anthropic = function()
+            return require("codecompanion.adapters").extend("anthropic", {
+              env = {
+                api_key = "cmd:cat /home/rafaelhdr/Documents/claude.txt",
+              },
+            })
+          end,
+        },
       },
     })
   end,
