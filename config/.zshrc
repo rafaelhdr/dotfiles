@@ -26,12 +26,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-    export EDITOR='nvim'
-else
-    export EDITOR='vim'
-fi
+export EDITOR='nvim'
 
 # ZSH
 alias zshconfig="nvim ~/.zshrc"
@@ -64,3 +59,12 @@ if [ -e /etc/profile.d/vte.sh ]; then
 fi
 
 alias gnome-open='xdg-open'
+
+# bit
+case ":$PATH:" in
+  *":/home/rafaelhdr/bin:"*) ;;
+  *) export PATH="$PATH:/home/rafaelhdr/bin" ;;
+esac
+# bit end
+
+. "$HOME/.local/bin/env"
