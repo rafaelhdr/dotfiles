@@ -15,6 +15,6 @@ if echo "$connected" | grep -q "^DP-3$"; then
     enable_monitor "DP-3" "3840x2160@60" "0x0" "1" "0"
     hyprctl keyword monitor "eDP-1,disable"
 else
-    enable_monitor "eDP-1" "1920x1200@60" "3840x0" "1" "0"
+    enable_monitor "eDP-1" "1920x1200@60" "0x0" "1" "0"
     hyprctl keyword monitor "DP-3,disable"
 fi
