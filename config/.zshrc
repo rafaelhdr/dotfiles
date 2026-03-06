@@ -15,6 +15,7 @@ CASE_SENSITIVE="true"
 
 plugins=(
     git
+    gh  # GitHub CLI
     jump
     extract
     sudo
