@@ -51,6 +51,9 @@ alias v='nvim'
 # Terraform
 alias tf='terraform'
 
+# Kubernetes homelab
+export KUBECONFIG=~/.kube/homelab
+
 # NVM
 source /usr/share/nvm/init-nvm.sh
 
