@@ -20,10 +20,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Full git history for deep scanning
+          fetch-depth: ${{ github.event_name == 'push' && 0 || 1 }}
 
-      - name: Run Gitleaks (full git history)
+      - name: Run Gitleaks
         uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}  # Optional (only needed for private repos with the enterprise version)
