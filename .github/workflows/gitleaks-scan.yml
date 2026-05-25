@@ -20,7 +20,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: ${{ github.event_name == 'push' && 0 || 1 }}
+          fetch-depth: ${{ github.event_name == 'pull_request' && 1 || 0 }}
 
       - name: Run Gitleaks
         uses: gitleaks/gitleaks-action@v2
