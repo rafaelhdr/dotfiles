@@ -1,4 +1,6 @@
-rafaelhdr dotfiles for setting up on Debian and Arch Linux systems.
+# rafaelhdr dotfiles
+
+Personal dotfiles for setting up Debian and Arch Linux systems.
 
 # Quick Start
 
