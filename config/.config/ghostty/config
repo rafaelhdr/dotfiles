@@ -5,5 +5,6 @@ keybind = alt+h=previous_tab
 keybind = alt+shift+h=move_tab:-1
 keybind = alt+l=next_tab
 keybind = alt+shift+l=move_tab:1
+keybind = ctrl+shift+r=prompt_tab_title
 
 clipboard-paste-protection = false
