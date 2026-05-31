@@ -8,7 +8,7 @@ vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
 vim.keymap.set("n", "<leader>gD", function()
     local params = vim.lsp.util.make_position_params()
-    vim.lsp.buf_request(0, "textDocument/definition", params, function(err, result, _ctx)
+    vim.lsp.buf_request(0, "textDocument/definition", params, function(err, result)
         if err or not result or vim.tbl_isempty(result) then
             return
         end
