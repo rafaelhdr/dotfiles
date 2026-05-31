@@ -15,12 +15,13 @@ CASE_SENSITIVE="true"
 
 plugins=(
     git
-    gh  # GitHub CLI
+    gh
     jump
     extract
     sudo
     timer
     urltools
+    archlinux
 )
 
 source $ZSH/oh-my-zsh.sh
