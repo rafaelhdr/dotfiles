@@ -1,15 +1,17 @@
-name: Neovim Config Lint
+name: Lua Config Lint
 
 on:
   push:
     branches: [main]
     paths:
       - 'config/.config/nvim/**'
+      - 'config/.config/hypr/**'
       - '.luacheckrc'
   pull_request:
     branches: [main]
     paths:
       - 'config/.config/nvim/**'
+      - 'config/.config/hypr/**'
       - '.luacheckrc'
   workflow_dispatch:  # Allow manual trigger from GitHub UI
 
@@ -17,8 +19,8 @@ permissions:
   contents: read
 
 jobs:
-  lint:
-    name: LuaCheck
+  lint-nvim:
+    name: LuaCheck (Neovim)
     runs-on: ubuntu-latest
 
     steps:
@@ -29,3 +31,16 @@ jobs:
         uses: lunarmodules/luacheck@v1
         with:
           args: 'config/.config/nvim/ --no-color --codes'
+
+  lint-hyprland:
+    name: LuaCheck (Hyprland)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Luacheck
+        uses: lunarmodules/luacheck@v1
+        with:
+          args: 'config/.config/hypr/ --no-color --codes'

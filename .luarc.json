@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
+  "runtime.version": "LuaJIT",
+  "workspace.maxPreload": 2000,
+  "workspace.preloadFileSize": 500,
+  "diagnostics.globals": [
+    "vim",
+    "hl",
+    "Snacks"
+  ],
+  "workspace.ignoreDir": [
+    ".git",
+    "config/.config/nvim/lazy"
+  ]
+}
