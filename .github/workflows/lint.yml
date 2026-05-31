@@ -7,21 +7,27 @@ on:
       - 'config/.config/nvim/**'
       - 'config/.config/hypr/**'
       - '.luacheckrc'
+      - 'stylua.toml'
   pull_request:
     branches: [main]
     paths:
       - 'config/.config/nvim/**'
       - 'config/.config/hypr/**'
       - '.luacheckrc'
+      - 'stylua.toml'
   workflow_dispatch:  # Allow manual trigger from GitHub UI
 
 permissions:
   contents: read
 
 jobs:
-  lint-nvim:
-    name: LuaCheck (Neovim)
+  lint:
+    name: LuaCheck (${{ matrix.dir }})
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        dir: [nvim, hypr]
 
     steps:
       - name: Checkout code
@@ -30,17 +36,21 @@ jobs:
       - name: Run Luacheck
         uses: lunarmodules/luacheck@v1
         with:
-          args: 'config/.config/nvim/ --no-color --codes'
+          args: 'config/.config/${{ matrix.dir }}/ --no-color --codes'
 
-  lint-hyprland:
-    name: LuaCheck (Hyprland)
+  format:
+    name: StyLua format check
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Run Luacheck
-        uses: lunarmodules/luacheck@v1
+      - name: Install StyLua
+        uses: JohnnyMorganz/stylua-action@v4
         with:
-          args: 'config/.config/hypr/ --no-color --codes'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: latest
+
+      - name: Check formatting
+        run: stylua --check config/.config/nvim/ config/.config/hypr/
