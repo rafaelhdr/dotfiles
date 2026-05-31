@@ -5,10 +5,12 @@ on:
     branches: [main]
     paths:
       - 'config/.config/nvim/**'
+      - '.luacheckrc'
   pull_request:
     branches: [main]
     paths:
       - 'config/.config/nvim/**'
+      - '.luacheckrc'
   workflow_dispatch:  # Allow manual trigger from GitHub UI
 
 permissions:
@@ -31,7 +33,5 @@ jobs:
       - name: Run Luacheck
         run: |
           luacheck config/.config/nvim/ \
-            --std lua51+luajit+busted \
-            --globals vim \
             --no-color \
             --codes
