@@ -25,13 +25,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install Luacheck
+      - name: Run Luacheck
         uses: lunarmodules/luacheck@v1
         with:
-          version: '1.2.0'
-
-      - name: Run Luacheck
-        run: |
-          luacheck config/.config/nvim/ \
-            --no-color \
-            --codes
+          args: 'config/.config/nvim/ --no-color --codes'

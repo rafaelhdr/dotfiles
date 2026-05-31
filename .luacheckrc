@@ -9,3 +9,6 @@ globals = {
 
 -- Allow unused args (common in callback patterns, e.g. lsp handlers)
 unused_args = false
+
+-- Neovim plugin configs often have long option tables
+max_line_length = 140
