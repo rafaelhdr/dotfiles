@@ -225,7 +225,7 @@ hl.bind(mainMod .. " + N", hl.dsp.exec_cmd(fileManager))
 
 hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu_run))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu_drun))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
