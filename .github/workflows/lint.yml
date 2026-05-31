@@ -1,16 +1,20 @@
-name: Neovim Config Lint
+name: Lua Config Lint
 
 on:
   push:
     branches: [main]
     paths:
       - 'config/.config/nvim/**'
+      - 'config/.config/hypr/**'
       - '.luacheckrc'
+      - 'stylua.toml'
   pull_request:
     branches: [main]
     paths:
       - 'config/.config/nvim/**'
+      - 'config/.config/hypr/**'
       - '.luacheckrc'
+      - 'stylua.toml'
   workflow_dispatch:  # Allow manual trigger from GitHub UI
 
 permissions:
@@ -18,8 +22,12 @@ permissions:
 
 jobs:
   lint:
-    name: LuaCheck
+    name: LuaCheck (${{ matrix.dir }})
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        dir: [nvim, hypr]
 
     steps:
       - name: Checkout code
@@ -28,4 +36,19 @@ jobs:
       - name: Run Luacheck
         uses: lunarmodules/luacheck@v1
         with:
-          args: 'config/.config/nvim/ --no-color --codes'
+          args: 'config/.config/${{ matrix.dir }}/ --no-color --codes'
+
+  format:
+    name: StyLua format check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check formatting
+        uses: JohnnyMorganz/stylua-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: latest
+          args: --check config/.config/nvim/ config/.config/hypr/

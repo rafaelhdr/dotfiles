@@ -7,12 +7,12 @@ vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
-vim.g.mapleader= " "
+vim.g.mapleader = " "
 
 vim.g.python_indent = {
-  open_paren = "shiftwidth()",
-  nested_paren = "shiftwidth()",
-  continue = "shiftwidth()",
-  closed_paren_align_last_line = false,
+    open_paren = "shiftwidth()",
+    nested_paren = "shiftwidth()",
+    continue = "shiftwidth()",
+    closed_paren_align_last_line = false,
 }
 vim.keymap.set("v", "<leader>y", '"+y', { desc = "Yank to system clipboard" })
