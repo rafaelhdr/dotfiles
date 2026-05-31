@@ -46,11 +46,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install StyLua
+      - name: Check formatting
         uses: JohnnyMorganz/stylua-action@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           version: latest
-
-      - name: Check formatting
-        run: stylua --check config/.config/nvim/ config/.config/hypr/
+          args: --check config/.config/nvim/ config/.config/hypr/
