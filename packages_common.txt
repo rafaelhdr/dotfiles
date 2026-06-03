@@ -19,5 +19,6 @@ tk
 vim
 wget
 wl-clipboard
+wlr-randr
 yarn
 zsh
