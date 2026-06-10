@@ -1,6 +1,6 @@
 [modules]
 left = [ [ "Workspaces", "Status", "MediaPlayer" ] ]
-center = [ "Clock" ]
+center = [ "Tempo" ]
 right = [ "notifications", "monitor-external", "monitor-builtin", "monitor-both", "calendar", "clock", "SystemInfo", [  "Tray", "Privacy", "Settings" ] ]
 
 [updates]
