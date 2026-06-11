@@ -14,19 +14,6 @@
 ---- MONITORS ----
 ------------------
 
-hl.monitor({
-    output = "DP-3",
-    mode = "3840x2160@60",
-    position = "auto",
-    scale = 1,
-})
-hl.monitor({
-    output = "eDP-1",
-    mode = "preferred",
-    position = "auto",
-    scale = 1,
-})
-
 hl.bind("switch:on:Lid Switch", function()
     hl.monitor({ output = "eDP-1", disabled = true })
 end, { locked = true })
@@ -115,7 +102,7 @@ hl.config({
         rounding_power = 2,
 
         active_opacity = 1.0,
-        inactive_opacity = 0.7,
+        inactive_opacity = 1.0,
 
         shadow = {
             enabled = true,
