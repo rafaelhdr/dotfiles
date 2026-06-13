@@ -75,3 +75,8 @@ esac
 . "$HOME/.local/bin/env"
 
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/rafaelhdr/.lmstudio/bin"
+# End of LM Studio CLI section
+
