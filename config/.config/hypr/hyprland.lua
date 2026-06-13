@@ -14,6 +14,15 @@
 ---- MONITORS ----
 ------------------
 
+hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
+-- hl.monitor({
+--     output = "eDP-1",
+--     disabled = false,
+--     mode = "1920x1200@60",
+--     position = "auto",
+--     scale = 1,
+-- })
+
 hl.bind("switch:on:Lid Switch", function()
     hl.monitor({ output = "eDP-1", disabled = true })
 end, { locked = true })
@@ -22,7 +31,7 @@ hl.bind("switch:off:Lid Switch", function()
     hl.monitor({
         output = "eDP-1",
         disabled = false,
-        mode = "1920x1200@60", -- the explicit mode from your old script
+        mode = "1920x1200@60",
         position = "auto",
         scale = 1,
     })
@@ -54,7 +63,7 @@ hl.on("hyprland.start", function()
         local state = lid_file:read("*l")
         lid_file:close()
         if state and state:match("closed") then
-            hl.monitor({ output = "eDP-1", disabled = true })
+            hl.monitor({ output = "eDP-1", disabled = true, scale = 1 })
         end
     end
 
