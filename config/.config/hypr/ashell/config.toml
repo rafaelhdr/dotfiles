@@ -1,3 +1,6 @@
+language = "en-US"
+region = "pt-BR"
+
 [modules]
 left = [ [ "Workspaces", "Status", "MediaPlayer" ] ]
 center = [ "Tempo" ]
