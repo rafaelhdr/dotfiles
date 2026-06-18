@@ -241,6 +241,8 @@ for i, key in ipairs(workspaceKeys) do
     hl.bind("CTRL + ALT + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
+hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
+
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind(
     "XF86AudioRaiseVolume",
