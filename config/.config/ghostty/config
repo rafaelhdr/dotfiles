@@ -8,3 +8,5 @@ keybind = alt+shift+l=move_tab:1
 keybind = ctrl+shift+r=prompt_tab_title
 
 clipboard-paste-protection = false
+
+gtk-custom-css = ~/.config/ghostty/tabs.css
