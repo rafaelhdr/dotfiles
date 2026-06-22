@@ -80,3 +80,11 @@ if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)
 export PATH="$PATH:/home/rafaelhdr/.lmstudio/bin"
 # End of LM Studio CLI section
 
+betterleaks() {
+    mkdir -p "$PWD/.betterleaks-reports"
+    docker run --rm \
+        -w /repo \
+        -v "$PWD":/repo:ro \
+        -v "$PWD/.betterleaks-reports":/out \
+    ghcr.io/betterleaks/betterleaks:latest "$@"
+}
