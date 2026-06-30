@@ -3,6 +3,7 @@ docker-compose
 git
 gitg
 gnome-tweaks
+jq
 luarocks
 neovim
 nodejs

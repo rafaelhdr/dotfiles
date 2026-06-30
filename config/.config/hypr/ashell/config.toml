@@ -33,6 +33,13 @@ name = "clock"
 icon = "󱑆"
 command = "gnome-clocks"
 
+[[settings.CustomButton]]
+name = "Inactive Opacity"
+icon = ""
+command = "~/.config/hypr/ashell/toggle-opacity.sh"
+status_command = "~/.config/hypr/ashell/toggle-opacity.sh status"
+tooltip = "Toggle inactive window opacity (0.7 / 1.0)"
+
 [[CustomModule]]
 name = "notifications"
 icon = "󰂚"
