@@ -1,0 +1,8 @@
+hyprland
+hyprland-guiutils
+hyprlock
+hyprsunset
+hyprpaper
+mako
+wl-clipboard
+wlr-randr
