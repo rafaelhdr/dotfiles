@@ -245,6 +245,9 @@ end
 
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 
+-- screenshot
+hl.bind("PRINT", hl.dsp.exec_cmd("flameshot gui"))
+
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind(
     "XF86AudioRaiseVolume",
@@ -348,9 +351,3 @@ hl.window_rule({
     match = { title = "Export Image as PNG" },
     float = true,
 })
-
--- Screenshot commands
-local screenshotDir = "~/Pictures/Screenshots"
-hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -o " .. screenshotDir .. " -m output"))
-hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -o " .. screenshotDir .. " -m window"))
-hl.bind("CTRL + PRINT", hl.dsp.exec_cmd("hyprshot -o " .. screenshotDir .. " -m region"))

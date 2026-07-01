@@ -1,3 +1,4 @@
+flameshot
 hyprland
 hyprland-guiutils
 hyprlock
