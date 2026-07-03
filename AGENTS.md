@@ -10,7 +10,7 @@ config/             source config files (symlinked into ~)
   .zshrc            zsh shell config
   .config/
     nvim/           neovim config (lazy.nvim, Lua)
-    hypr/           hyprland, hyprlock, hyprpaper, mako, ashell (Lua + TOML)
+    hypr/           hyprland, hyprlock, hyprpaper, mako, ashell (Lua + TOML) — see config/.config/hypr/AGENTS.md
     ghostty/        ghostty terminal config
     kitty/          kitty terminal config
 packages_common.txt pacman packages installed on all systems
