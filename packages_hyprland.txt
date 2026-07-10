@@ -2,8 +2,10 @@ flameshot
 hyprland
 hyprland-guiutils
 hyprlock
-hyprsunset
 hyprpaper
+hyprsunset
+imagemagick
 mako
+python-nautilus
 wl-clipboard
 wlr-randr
