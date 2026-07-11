@@ -8,4 +8,5 @@ imagemagick
 mako
 python-nautilus
 wl-clipboard
+wl-mirror
 wlr-randr

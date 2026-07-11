@@ -16,8 +16,6 @@
 
 hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
 
--- hl.monitor({ output = "DP-4", mirror = "eDP-1" })
-
 hl.bind("switch:on:Lid Switch", function()
     hl.monitor({ output = "eDP-1", disabled = true })
 end, { locked = true })
@@ -227,6 +225,7 @@ hl.bind(mainMod .. " + N", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
+hl.bind(mainMod .. " + G", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu_run))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu_drun))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
