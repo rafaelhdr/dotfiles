@@ -14,7 +14,9 @@
 ---- MONITORS ----
 ------------------
 
-hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
+local builtin_monitor_scale = 0.8
+hl.monitor({ output = "", mode = "preferred", position = "auto" })
+hl.monitor({ output = "eDP-1", scale = builtin_monitor_scale })
 
 hl.bind("switch:on:Lid Switch", function()
     hl.monitor({ output = "eDP-1", disabled = true })
@@ -26,7 +28,7 @@ hl.bind("switch:off:Lid Switch", function()
         disabled = false,
         mode = "1920x1200@60",
         position = "auto",
-        scale = 1,
+        scale = builtin_monitor_scale,
     })
 end, { locked = true })
 
