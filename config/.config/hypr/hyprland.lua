@@ -233,6 +233,18 @@ hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu_run))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu_drun))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 
+local resizeStep = 300
+hl.bind(
+    mainMod .. " + BRACKETLEFT",
+    hl.dsp.window.resize({ x = resizeStep, y = 0, relative = true }),
+    { repeating = true }
+)
+hl.bind(
+    mainMod .. " + BRACKETRIGHT",
+    hl.dsp.window.resize({ x = -resizeStep, y = 0, relative = true }),
+    { repeating = true }
+)
+
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
