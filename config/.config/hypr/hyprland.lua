@@ -8,13 +8,12 @@
 -- You can (and should!!) split this configuration into multiple files
 -- Create your files separately and then require them like this:
 -- require("myColors")
---
 
 ------------------
 ---- MONITORS ----
 ------------------
 
-local builtin_monitor_scale = 0.8
+local builtin_monitor_scale = 1.0
 hl.monitor({ output = "", mode = "preferred", position = "auto" })
 hl.monitor({ output = "eDP-1", scale = builtin_monitor_scale })
 
