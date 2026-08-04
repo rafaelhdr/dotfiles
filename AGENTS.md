@@ -15,10 +15,11 @@ config/             source config files (symlinked into ~)
     kitty/          kitty terminal config
 packages_common.txt pacman packages installed on all systems
 packages_hyprland.txt pacman packages for the Hyprland desktop
+packages_hyprland_aur.txt AUR packages for the Hyprland desktop (installed via paru)
 setup.sh            entry point: detects OS, runs symlinks + OS-specific setup
 setup_arch.sh       arch-specific: pacman install + oh-my-zsh + hyprland setup
 setup_debian.sh     debian/ubuntu-specific setup
-setup_hyprland.sh   installs hyprland packages
+setup_hyprland.sh   installs hyprland packages (pacman + AUR via paru)
 create_symlinks.sh  creates symlinks from config/ into ~/
 ```
 
@@ -45,7 +46,8 @@ Config files: `.luacheckrc` (max line length 140), `stylua.toml`.
 - Lua files in `nvim/` and `hypr/` must pass luacheck and stylua before merging.
 - To add a new symlink, update `create_symlinks.sh`.
 - To add a system package, append it to `packages_common.txt` or
-  `packages_hyprland.txt`.
+  `packages_hyprland.txt` (official repos), or `packages_hyprland_aur.txt`
+  (AUR-only packages).
 - To add a neovim plugin, edit the relevant file under
   `config/.config/nvim/lua/plugins/`, then update `lazy-lock.json` (see below).
 
