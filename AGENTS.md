@@ -1,7 +1,7 @@
 # AGENTS.md
 
-Personal dotfiles for Arch Linux (primary) and Debian/Ubuntu. Configs are
-applied via symlinks; setup scripts install packages and create them.
+Personal dotfiles for Arch Linux. Configs are applied via symlinks; setup
+scripts install packages and create them.
 
 ## Repository structure
 
@@ -12,16 +12,20 @@ config/             source config files (symlinked into ~)
     nvim/           neovim config (lazy.nvim, Lua)
     hypr/           hyprland, hyprlock, hyprpaper, mako, ashell (Lua + TOML) — see config/.config/hypr/AGENTS.md
     ghostty/        ghostty terminal config
-    kitty/          kitty terminal config
-packages_common.txt pacman packages installed on all systems
+packages_common.txt pacman packages installed always (server and desktop)
+packages_desktop.txt pacman packages for GUI/desktop use (gitg, gnome-tweaks, proton-vpn-gtk-app)
 packages_hyprland.txt pacman packages for the Hyprland desktop
 packages_hyprland_aur.txt AUR packages for the Hyprland desktop (installed via paru)
-setup.sh            entry point: detects OS, runs symlinks + OS-specific setup
-setup_arch.sh       arch-specific: pacman install + oh-my-zsh + hyprland setup
-setup_debian.sh     debian/ubuntu-specific setup
+setup.sh            entry point: confirms Arch, prompts to include hyprland/desktop, runs symlinks + setup_arch.sh
+setup_arch.sh       pacman install (common, + desktop/hyprland if requested) + oh-my-zsh
 setup_hyprland.sh   installs hyprland packages (pacman + AUR via paru)
-create_symlinks.sh  creates symlinks from config/ into ~/
+create_symlinks.sh  creates symlinks from config/ into ~/ (desktop-only links gated by the same prompt)
 ```
+
+`setup.sh` asks "Include hyprland and related packages? [Y/n]" and passes the
+answer (`true`/`false`) as `$1` to `create_symlinks.sh` and `setup_arch.sh`.
+Answering `n` (used for headless servers) skips `packages_desktop.txt`,
+`setup_hyprland.sh`, and the ghostty/Nautilus symlinks.
 
 ## Linting and formatting
 
@@ -45,9 +49,10 @@ Config files: `.luacheckrc` (max line length 140), `stylua.toml`.
 - Edit files under `config/` — they are the source of truth (symlinked into ~).
 - Lua files in `nvim/` and `hypr/` must pass luacheck and stylua before merging.
 - To add a new symlink, update `create_symlinks.sh`.
-- To add a system package, append it to `packages_common.txt` or
-  `packages_hyprland.txt` (official repos), or `packages_hyprland_aur.txt`
-  (AUR-only packages).
+- To add a system package, append it to `packages_common.txt` (installed
+  always), `packages_desktop.txt` or `packages_hyprland.txt` (official repos,
+  desktop-only), or `packages_hyprland_aur.txt` (AUR-only packages,
+  desktop-only).
 - To add a neovim plugin, edit the relevant file under
   `config/.config/nvim/lua/plugins/`, then update `lazy-lock.json` (see below).
 

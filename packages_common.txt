@@ -1,15 +1,12 @@
 docker
 docker-compose
 git
-gitg
-gnome-tweaks
 jq
 luarocks
 neovim
 nodejs
 npm
 nvm
-proton-vpn-gtk-app
 python
 python-virtualenv
 rclone

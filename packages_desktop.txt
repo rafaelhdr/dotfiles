@@ -1,0 +1,3 @@
+gitg
+gnome-tweaks
+proton-vpn-gtk-app
