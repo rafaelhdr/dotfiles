@@ -26,6 +26,9 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# Show user@host in the prompt so it's clear which machine a terminal is on
+PROMPT='%F{yellow}%n@%m%f '$PROMPT
+
 # User configuration
 
 export EDITOR='nvim'
