@@ -1,6 +1,12 @@
+# Shared ghostty config — loaded on every platform.
+# Platform-specific settings live in linux.conf / macos.conf and are pulled in
+# through the os.conf include at the bottom of this file.
+
 theme = Catppuccin Frappe
 maximize = true
 
+# Tab navigation. On Linux these use Alt; on macOS the Option key (see
+# macos-option-as-alt in macos.conf if you want Option to behave as Alt).
 keybind = alt+h=previous_tab
 keybind = alt+shift+h=move_tab:-1
 keybind = alt+l=next_tab
@@ -9,4 +15,7 @@ keybind = ctrl+shift+r=prompt_tab_title
 
 clipboard-paste-protection = false
 
-gtk-custom-css = ~/.config/ghostty/tabs.css
+# OS-specific settings. `os.conf` is a per-machine symlink created by
+# create_symlinks.sh (-> linux.conf or macos.conf). The leading `?` makes the
+# include optional, so ghostty won't error if the symlink hasn't been created.
+config-file = ?os.conf
