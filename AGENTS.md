@@ -11,7 +11,9 @@ config/             source config files (symlinked into ~)
   .config/
     nvim/           neovim config (lazy.nvim, Lua)
     hypr/           hyprland, hyprlock, hyprpaper, mako, ashell (Lua + TOML) — see config/.config/hypr/AGENTS.md
-    ghostty/        ghostty terminal config
+    ghostty/        ghostty terminal config (cross-platform: config = shared,
+                    linux.conf = GTK-only, macos.conf = AppKit-only, loaded via
+                    a per-machine os.conf symlink; tabs.css = Linux GTK styling)
 packages_common.txt pacman packages installed always (server and desktop)
 packages_desktop.txt pacman packages for GUI/desktop use (gitg, gnome-tweaks, proton-vpn-gtk-app)
 packages_hyprland.txt pacman packages for the Hyprland desktop
@@ -19,7 +21,7 @@ packages_hyprland_aur.txt AUR packages for the Hyprland desktop (installed via p
 setup.sh            entry point: confirms Arch, prompts to include hyprland/desktop, runs symlinks + setup_arch.sh
 setup_arch.sh       pacman install (common, + desktop/hyprland if requested) + oh-my-zsh
 setup_hyprland.sh   installs hyprland packages (pacman + AUR via paru)
-create_symlinks.sh  creates symlinks from config/ into ~/ (desktop-only links gated by the same prompt)
+create_symlinks.sh  creates symlinks from config/ into ~/ (desktop-only links gated by the same prompt); OS-aware via `uname` — on macOS it always links ghostty (os.conf -> macos.conf), on Linux ghostty is linked only for desktop installs (os.conf -> linux.conf)
 ```
 
 `setup.sh` asks "Include hyprland and related packages? [Y/n]" and passes the
