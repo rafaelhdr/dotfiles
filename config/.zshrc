@@ -1,9 +1,9 @@
 
-# Add bin-* directories to the PATH
-for dir in $HOME/bin-*; do
-    if [[ -d $dir ]]; then
-        path+=("$dir")
-    fi
+# Add bin-* directories to the PATH.
+# The (N/) qualifiers mean "no error if nothing matches" and "directories only",
+# so a machine with no bin-* dir doesn't abort the rest of this file.
+for dir in $HOME/bin-*(N/); do
+    path+=("$dir")
 done
 
 export ZSH="$HOME/.oh-my-zsh"
@@ -21,7 +21,6 @@ plugins=(
     sudo
     timer
     urltools
-    archlinux
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -44,7 +43,11 @@ alias git_staging='git checkout staging'
 alias git_production='git checkout production'
 
 # Python
-alias python3='python'
+# Arch and friends ship 3.x as bare `python` with no `python3`; macOS is the
+# opposite, so only bridge the gap when python3 is genuinely absent.
+if ! command -v python3 >/dev/null 2>&1; then
+    alias python3='python'
+fi
 
 # Jump
 alias j='jump'
