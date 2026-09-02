@@ -21,6 +21,7 @@ plugins=(
     sudo
     timer
     urltools
+    archlinux
 )
 
 source $ZSH/oh-my-zsh.sh
