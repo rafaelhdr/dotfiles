@@ -63,7 +63,22 @@ alias tf='terraform'
 export KUBECONFIG=~/.kube/homelab
 
 # NVM
-source /usr/share/nvm/init-nvm.sh
+# Arch's nvm package ships an init script; Homebrew and the upstream install
+# script both use nvm.sh instead. Source whichever exists, silently on a
+# machine that has none.
+if [ -s /usr/share/nvm/init-nvm.sh ]; then
+    source /usr/share/nvm/init-nvm.sh
+else
+    export NVM_DIR="$HOME/.nvm"
+    for nvm_script in "$NVM_DIR/nvm.sh" /opt/homebrew/opt/nvm/nvm.sh /usr/local/opt/nvm/nvm.sh; do
+        if [ -s "$nvm_script" ]; then
+            mkdir -p "$NVM_DIR"
+            source "$nvm_script"
+            break
+        fi
+    done
+    unset nvm_script
+fi
 
 # including this ensures that new gnome-terminal tabs keep the parent `pwd` !
 if [ -e /etc/profile.d/vte.sh ]; then
@@ -79,7 +94,11 @@ case ":$PATH:" in
 esac
 # bit end
 
-. "$HOME/.local/bin/env"
+# uv drops this in to put ~/.local/bin on the PATH; it's absent where uv isn't
+# installed, so don't abort the rest of this file over it.
+if [ -f "$HOME/.local/bin/env" ]; then
+    . "$HOME/.local/bin/env"
+fi
 
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
 
