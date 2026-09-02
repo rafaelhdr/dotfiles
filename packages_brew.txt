@@ -1,0 +1,13 @@
+git
+jq
+luarocks
+neovim
+node
+nvm
+python
+rclone
+ripgrep
+vim
+wget
+yarn
+zsh
