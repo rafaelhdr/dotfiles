@@ -1,9 +1,9 @@
 
-# Add bin-* directories to the PATH
-for dir in $HOME/bin-*; do
-    if [[ -d $dir ]]; then
-        path+=("$dir")
-    fi
+# Add bin-* directories to the PATH.
+# The (N/) qualifiers mean "no error if nothing matches" and "directories only",
+# so a machine with no bin-* dir doesn't abort the rest of this file.
+for dir in $HOME/bin-*(N/); do
+    path+=("$dir")
 done
 
 export ZSH="$HOME/.oh-my-zsh"
@@ -44,7 +44,11 @@ alias git_staging='git checkout staging'
 alias git_production='git checkout production'
 
 # Python
-alias python3='python'
+# Arch and friends ship 3.x as bare `python` with no `python3`; macOS is the
+# opposite, so only bridge the gap when python3 is genuinely absent.
+if ! command -v python3 >/dev/null 2>&1; then
+    alias python3='python'
+fi
 
 # Jump
 alias j='jump'
@@ -59,7 +63,22 @@ alias tf='terraform'
 export KUBECONFIG=~/.kube/homelab
 
 # NVM
-source /usr/share/nvm/init-nvm.sh
+# Arch's nvm package ships an init script; Homebrew and the upstream install
+# script both use nvm.sh instead. Source whichever exists, silently on a
+# machine that has none.
+if [ -s /usr/share/nvm/init-nvm.sh ]; then
+    source /usr/share/nvm/init-nvm.sh
+else
+    export NVM_DIR="$HOME/.nvm"
+    for nvm_script in "$NVM_DIR/nvm.sh" /opt/homebrew/opt/nvm/nvm.sh /usr/local/opt/nvm/nvm.sh; do
+        if [ -s "$nvm_script" ]; then
+            mkdir -p "$NVM_DIR"
+            source "$nvm_script"
+            break
+        fi
+    done
+    unset nvm_script
+fi
 
 # including this ensures that new gnome-terminal tabs keep the parent `pwd` !
 if [ -e /etc/profile.d/vte.sh ]; then
@@ -75,7 +94,11 @@ case ":$PATH:" in
 esac
 # bit end
 
-. "$HOME/.local/bin/env"
+# uv drops this in to put ~/.local/bin on the PATH; it's absent where uv isn't
+# installed, so don't abort the rest of this file over it.
+if [ -f "$HOME/.local/bin/env" ]; then
+    . "$HOME/.local/bin/env"
+fi
 
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
 
