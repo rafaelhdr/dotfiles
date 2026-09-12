@@ -8,7 +8,12 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 hl.bind("CTRL + ALT + T", hl.dsp.exec_cmd("GTK_IM_MODULE=simple " .. vars.terminal))
 hl.bind("CTRL + ALT + SHIFT + L", hl.dsp.exec_cmd("hyprlock"))
-hl.bind("CTRL + ALT + SHIFT + SEMICOLON", hl.dsp.exec_cmd("hyprlock -c ~/.config/hypr/hyprlock-dark.conf"))
+hl.bind("CTRL + ALT + SHIFT + SEMICOLON", function()
+    hl.exec_cmd("hyprlock -c ~/.config/hypr/hyprlock-dark.conf")
+    hl.timer(function()
+        hl.dispatch(hl.dsp.dpms({ action = "off" }))
+    end, { timeout = 500, type = "oneshot" })
+end)
 hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd("zen-browser -P"))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd(vars.fileManager))
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("scrcpy --turn-screen-off -e"))
