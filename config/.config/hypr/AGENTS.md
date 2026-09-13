@@ -19,11 +19,13 @@ windowrules.lua          hl.window_rule() rules
 hyprlock.conf           lock screen (font, background, time/date/greeting widgets)
 hyprpaper.conf          wallpaper path (points to ~/Pictures/Backgrounds/current.png)
 hyprsunset.conf         night-light: color temperature + gamma profiles by time of day
+hypridle.conf           idle daemon: 5 min timeout runs scripts/battery-idle-suspend.sh
 mako.conf               notification daemon: layout, colors, urgency timeouts, DND support
 workspaces.conf         workspace config (currently empty/reserved)
 ashell/config.toml      status bar: modules, custom buttons, shell commands
 ashell/toggle-opacity.sh    toggles inactive window opacity 0.7 ↔ 1.0 via hyprctl
 scripts/ashell-mako.sh      toggles mako DND mode, streams JSON state to ashell
+scripts/battery-idle-suspend.sh    suspends after hypridle's timeout, only if on battery below 50%
 ```
 
 ## Lua API quick reference
