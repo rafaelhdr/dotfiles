@@ -12,6 +12,7 @@ python-virtualenv
 rclone
 ripgrep
 tk
+tree-sitter-cli
 vim
 wget
 yarn

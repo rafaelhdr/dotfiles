@@ -1,13 +1,16 @@
 return {
     "nvim-treesitter/nvim-treesitter",
+    lazy = false, -- main branch does not support lazy-loading
     build = ":TSUpdate",
-    branch = "master",
-    option = function()
-        local config = require("nvim-treesitter.configs")
-        config.setup({
-            ensure_installed = { "lua", "js", "python", "markdown", "markdown_inline", "yaml" },
-            highlight = { enable = true },
-            indent = { enable = true },
+    config = function()
+        local langs = { "lua", "javascript", "python", "markdown", "markdown_inline", "yaml" }
+        require("nvim-treesitter").install(langs)
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = langs,
+            callback = function()
+                vim.treesitter.start()
+                vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            end,
         })
     end,
 }
