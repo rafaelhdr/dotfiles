@@ -1,0 +1,11 @@
+onboarding = false
+
+[ui.sound]
+enabled = false
+
+[ui]
+status_indicators = "symbols"
+
+[theme]
+name = "catppuccin"
+auto_switch = false

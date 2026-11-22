@@ -14,6 +14,8 @@ config/             source config files (symlinked into ~)
     ghostty/        ghostty terminal config (cross-platform: config = shared,
                     linux.conf = GTK-only, macos.conf = AppKit-only, loaded via
                     a per-machine os.conf symlink; tabs.css = Linux GTK styling)
+    herdr/          herdr config.toml (only the file is symlinked; the directory
+                    also holds herdr's runtime sockets, logs and sessions)
 packages_common.txt pacman packages installed always (server and desktop)
 packages_desktop.txt pacman packages for GUI/desktop use (gitg, gnome-tweaks, proton-vpn-gtk-app)
 packages_hyprland.txt pacman packages for the Hyprland desktop

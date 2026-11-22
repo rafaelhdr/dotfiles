@@ -27,6 +27,11 @@ mkdir -p ~/.config
 ln -sf ~/dotfiles/config/.zshrc ~/.zshrc
 ln -sfn ~/dotfiles/config/.config/nvim ~/.config/nvim
 
+# herdr keeps sockets, logs and session state next to its config, so link only
+# the config file rather than the whole directory.
+mkdir -p ~/.config/herdr
+ln -sf ~/dotfiles/config/.config/herdr/config.toml ~/.config/herdr/config.toml
+
 if [ "$OS" == "Darwin" ]; then
     link_ghostty macos.conf
 elif [ "$INCLUDE_HYPRLAND" == "true" ]; then
