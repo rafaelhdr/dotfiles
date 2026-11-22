@@ -9,3 +9,16 @@ status_indicators = "symbols"
 [theme]
 name = "catppuccin"
 auto_switch = false
+
+# Direct (no prefix) navigation. Picked to avoid clashes with:
+#   ghostty  — alt+h/l, alt+shift+h/l (ghostty tabs)
+#   hyprland — super+h/j/k/l, ctrl+alt+j/k/m/comma/period (workspaces)
+# The prefix defaults are kept so both styles work.
+[keys]
+next_tab = ["prefix+n", "alt+m"]
+previous_tab = ["prefix+p", "alt+n"]
+rename_tab = ["prefix+shift+t", "alt+r"]
+next_workspace = "alt+j"
+previous_workspace = "alt+k"
+next_agent = "alt+shift+j"
+previous_agent = "alt+shift+k"
