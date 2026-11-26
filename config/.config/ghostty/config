@@ -5,8 +5,8 @@
 theme = Catppuccin Frappe
 maximize = true
 
-# Tab navigation. On Linux these use Alt; on macOS the Option key (see
-# macos-option-as-alt in macos.conf if you want Option to behave as Alt).
+# Tab navigation. On Linux these use Alt; on macOS the left Option key
+# (macos.conf sets macos-option-as-alt = left).
 keybind = alt+h=previous_tab
 keybind = alt+shift+h=move_tab:-1
 keybind = alt+l=next_tab
